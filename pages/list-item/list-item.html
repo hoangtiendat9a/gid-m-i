@@ -1,0 +1,50 @@
+<!--
+  Generated template for the ListItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <ion-navbar>
+    <ion-title>
+      <span style="font-size: 21px">Món ăn</span>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+<style>
+  .res {
+    margin: 5px;
+    border-radius: 3px;
+    width: 98%;
+    float: left;
+    font-size: 1.4rem;
+    background: #f8f8f8;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+</style>
+<ion-content>
+  <h3> {{res.Name}} </h3>
+  <div *ngFor='let item of listFoods' class="w3-col" style="width:49%;padding: 5px">
+    <div class='res' (click)='placeOrder(item.Id,item.Name,item.Price)'>
+      <img src="{{item.Image}}" style="width: 100%;height: 120px">
+      <ion-card-header>
+        {{item.Name}}
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <p>
+          <ion-icon name="ios-cash-outline" style='color:tomato'></ion-icon> {{item.Price}} VNĐ</p>
+
+      </ion-card-content>
+    </div>
+  </div>
+
+  <button ion-button color="secondary" style="width:98%;border-radius: 40px" (click)='listSelected(res)'>Hoàn tất</button>
+
+</ion-content>

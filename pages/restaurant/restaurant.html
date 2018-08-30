@@ -1,0 +1,56 @@
+<!--
+  Generated template for the RestaurantPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span style="font-size: 21px">Quán ăn</span> </ion-title>
+  </ion-navbar>
+
+</ion-header>
+<head>
+
+</head>
+<style type="text/css">
+  .res {
+    margin: 5px;
+    border-radius: 3px;
+    width: 98%;
+    float:left;
+    font-size: 1.4rem;
+    background: #f8f8f8;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  .info{
+    font-size: 15px;
+  }
+  
+</style>
+<ion-content>
+    <img src="../assets/imgs/img.jpg" style="width: 100%">
+    <div *ngFor = 'let item of listRestaurant' class="w3-col" style="width:49%;padding: 5px">
+      <div class='res' (click)='onCategory(item.Id)'>
+          <img src="{{item.Image}}" style="width: 100%;height: 120px">
+          <ion-card-header>
+            <b style='font-size:20px'>{{item.Name}}</b>
+          </ion-card-header>
+
+          <ion-card-content style='padding:0 0 0 10px;'>
+            
+              <p class="info"><ion-icon name="ios-home-outline" item-start ></ion-icon> {{item.Address}}</p>
+            <p class="info"><ion-icon name="md-phone-portrait" item-start ></ion-icon> {{item.Phone}}</p>
+          </ion-card-content>
+      </div>
+    </div>
+    
+
+  
+</ion-content>

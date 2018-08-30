@@ -1,0 +1,20 @@
+page-home{
+	.res {
+	  margin: 5px;
+	  border-radius: 3px;
+	  width: 177px;
+	  float:left;
+	  font-size: 1.4rem;
+	  background: #f8f8f8;
+	  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+	}
+	ion-app.ios [padding] .scroll-content {
+	  padding: 0;
+	}
+	.card-ios + ion-card {
+	  margin-top: 5px;
+	}
+	
+}

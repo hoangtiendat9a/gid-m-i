@@ -1,0 +1,76 @@
+<!--
+  Generated template for the ListSeclectedPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <span style="font-size: 21px">Món đã đặt</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor='let item of listSelected'>
+      <!-- <ion-thumbnail item-start>
+        <img src="{{item.Image}}">
+      </ion-thumbnail> -->
+      <h2 style='color:#8e9093;text-align:left;'>{{item.Name}}</h2>
+      <p style='text-align:left;'>{{item.Qty}} x {{item.Price}} đ</p>
+      <ion-icon name="md-close" style='color: black;float: right;margin-top: -40px;' (click)='deleteFood(item.FoodId)'></ion-icon>
+    </ion-item>
+  </ion-list>
+  <h4 *ngIf="count() != 0; else empty">
+    <ion-icon name="md-trash" style='font-size:2em;color: red;float: right;padding-right:25px;' (click)='deleteAll()'></ion-icon>
+  </h4>
+  <ng-template #empty>
+    <h2 style="text-align: center;">
+      <br>
+      <br>
+      <ion-icon ios="ios-alert" style='font-size: 5em;color: tomato;'></ion-icon>
+    </h2>
+    <h4 style="text-align: center;">Chưa đặt món!!!</h4>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="text-align: center;">
+      <button ion-button color="blue" style="width:65%;border-radius: 35px" navPop>
+        <ion-icon name="md-return-left"></ion-icon>&nbsp; Quay lại đặt món</button>
+    </div>
+  </ng-template>
+  <div *ngIf="count() != 0">
+    <h5>Số lượng: {{count()}}</h5>
+    <h5>Tổng tiền: {{getTotal()}} VNĐ</h5>
+    <hr>
+    <h2 style="text-align: center;color: tomato;font-weight: bold">LIÊN HỆ ĐẶT MÓN</h2>
+    <ion-card style="padding: 7px;border-radius: 30px">
+      <ion-card-header>
+        <h2 style="text-align: center;font-weight: bold">{{res.Name}}</h2>
+      </ion-card-header>
+    
+      <ion-list>
+          <h3 style="background: white;">
+              <ion-icon name="md-home" item-start></ion-icon>
+              {{res.Address}}
+          </h3>
+        <h3 style="background: white;">
+          <ion-icon name="md-call" item-start></ion-icon>
+          {{res.Phone}}
+        </h3>
+      </ion-list>
+    </ion-card>
+
+    <button ion-button color="danger" style="width:98%;border-radius: 35px" (click)='close()'>Đóng phiên đặt</button>
+  </div>
+
+
+</ion-content>
